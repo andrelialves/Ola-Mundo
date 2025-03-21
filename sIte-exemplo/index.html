@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu primeiro site em repositório</title>
+    <script>
+        function showMap() {
+            const country = document.getElementById('countries').value;
+            const maps = {
+                brasil: 'https://www.google.com/maps?q=Brazil&output=embed',
+                argentina: 'https://www.google.com/maps?q=Argentina&output=embed',
+                chile: 'https://www.google.com/maps?q=Chile&output=embed',
+                uruguai: 'https://www.google.com/maps?q=Uruguay&output=embed',
+                paraguai: 'https://www.google.com/maps?q=Paraguay&output=embed',
+                peru: 'https://www.google.com/maps?q=Peru&output=embed',
+                bolivia: 'https://www.google.com/maps?q=Bolivia&output=embed',
+                equador: 'https://www.google.com/maps?q=Ecuador&output=embed',
+                colombia: 'https://www.google.com/maps?q=Colombia&output=embed',
+                venezuela: 'https://www.google.com/maps?q=Venezuela&output=embed'
+            };
+            document.getElementById('map').src = maps[country];
+        }
+    </script>
 </head>
 <body>
     <h1>Olá, Mundo</h1>
@@ -12,7 +30,7 @@
     <b><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit sint unde laudantium impedit, facilis optio possimus aut qui id ea delectus quo ullam voluptatibus tenetur sed fugit tempora. Eaque?</p></b>
     <hr>
     <label for="countries">Escolha um país da América do Sul:</label>
-    <select id="countries" name="countries">
+    <select id="countries" name="countries" onchange="showMap()">
         <option value="brasil">Brasil</option>
         <option value="argentina">Argentina</option>
         <option value="chile">Chile</option>
@@ -24,5 +42,7 @@
         <option value="colombia">Colômbia</option>
         <option value="venezuela">Venezuela</option>
     </select>
+    <hr>
+    <iframe id="map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen></iframe>
 </body>
 </html>
